@@ -21,7 +21,7 @@ python : 2.7
 git clone https://github.com/sukparth/OrderProcess.git
 
 ## Run
-cd parse
+cd OrderProcess/parse
 
 python parse.py
 
