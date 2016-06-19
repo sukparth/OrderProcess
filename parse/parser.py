@@ -9,9 +9,11 @@ from datetime import datetime
 import re
 
 def price_mean(*args):
+    """ Computes mean for a variable number of float arguments """
     return round(float(sum(args))/len(args),2)
     
 def is_id(order_text):
+    """ Checks if incoming string is of id format """
     try:
         int(order_text)
         return True
@@ -20,6 +22,7 @@ def is_id(order_text):
         
  
 def is_float(val):
+    """ Checks if incoming string is of float format """
     try:
         float(val)
         return True
@@ -27,10 +30,12 @@ def is_float(val):
         return False
         
 def is_instacart_url(url):
+    """ Checks if url has the correct format """
     pattern = re.compile("http://www.insacart.com")
     return True if pattern.match(url) else False
 
 def is_date_YYYYMMDD(date_string):
+    """ Checks if date format is correct """
     try:
         datetime.strptime(date_string, '%Y%m%d')
         return True
@@ -119,7 +124,8 @@ def transform_row(inrow):
 
     
     
-def parser(input_file,output_file):    
+def parser(input_file,output_file): 
+    """ Parses input file line by line """
     with open(input_file) as ifile:
         order_data = csv.reader(ifile, delimiter='\t')
         next(order_data,None) # Skip Header
@@ -135,4 +141,6 @@ def parser(input_file,output_file):
 if __name__ == "__main__":
     input_file = "scripting_challenge_input_file.txt"
     output_file = "scripting_challenge_output_file.txt"
-    parser(input_file,output_file)
+    print("Processing input file {0}".format(input_file))
+    parser(input_file, output_file)
+    print("Output file created at {0}".format(output_file))
