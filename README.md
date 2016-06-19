@@ -23,6 +23,6 @@ git clone https://github.com/sukparth/OrderProcess.git
 ## Run
 cd OrderProcess/parse
 
-python parse.py
+python parser.py
 
 
